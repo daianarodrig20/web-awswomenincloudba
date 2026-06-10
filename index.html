@@ -310,6 +310,34 @@
             margin-bottom: 2rem;
         }
 
+        .community-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            max-width: 1000px;
+            margin: 2.5rem auto 0;
+        }
+
+        .community-photos img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(58,43,138,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .community-photos img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(58,43,138,0.2);
+        }
+
+        @media (max-width: 600px) {
+            .community-photos {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .features {
             background: var(--white);
         }
@@ -532,7 +560,7 @@
         </div>
         <h1>AWS Women in Cloud Buenos Aires</h1>
         <p class="tagline">Generando nubes de talento</p>
-        <p>La comunidad AWS Women in Cloud impulsa el aprendizaje, conecta profesionales y empodera mujeres en tecnología cloud. Únete a nosotras en este viaje de crecimiento e innovación.</p>
+        <p>Somos mujeres que se animaron a aprender, a preguntar y a crecer en el mundo cloud. Nos encontramos, nos ayudamos y hoy somos una comunidad que sigue sumando voces. Si estás dando tus primeros pasos o ya tenés experiencia, acá tenés un lugar.</p>
         <div class="cta-buttons">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-iQ0UiKyI5RKPNNf7FTaR-2viHkX1OomZDN8tIRYzMT_ILg/viewform" class="btn btn-primary">Súmate a la comunidad</a>
             <a href="#nosotras" class="btn btn-secondary">Conocé más</a>
@@ -551,6 +579,10 @@
         <p class="about-text">
             A través de eventos, workshops y programas de mentoría, impulsamos el desarrollo de habilidades técnicas en cloud computing y fomentamos la participación de más mujeres en el ecosistema tecnológico de Argentina y Latinoamérica.
         </p>
+    </div>
+    <div class="community-photos">
+        <img src="foto1.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 1">
+        <img src="foto2.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 2">
     </div>
 </section>
 
@@ -598,11 +630,11 @@
     </p>
     <div class="stats">
         <div class="stat-item">
-            <span class="stat-number">100+</span>
+            <span class="stat-number">250+</span>
             <span class="stat-label">Miembros activas</span>
         </div>
         <div class="stat-item">
-            <span class="stat-number">10+</span>
+            <span class="stat-number">20+</span>
             <span class="stat-label">Eventos realizados</span>
         </div>
         <div class="stat-item">
