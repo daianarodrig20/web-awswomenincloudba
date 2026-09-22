@@ -180,10 +180,86 @@
             z-index: 1;
         }
 
+        .hero-content-split {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .hero-badge {
+            flex-shrink: 0;
+        }
+
+        .hero-text {
+            max-width: 620px;
+            text-align: left;
+        }
+
+        .hero-text .tagline,
+        .hero-text p {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .hero-text .cta-buttons,
+        .hero-text .hero-social {
+            justify-content: flex-start;
+        }
+
+        .hero-title-sub {
+            display: block;
+            font-size: 0.5em;
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .hero-decor {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-star {
+            position: absolute;
+            display: block;
+        }
+
+        .hero-star svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.85); }
+            50% { opacity: 0.85; transform: scale(1); }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content-split {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-text .cta-buttons,
+            .hero-text .hero-social {
+                justify-content: center;
+            }
+        }
+
         .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
+            width: 380px;
+            height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -342,20 +418,68 @@
             background: var(--white);
         }
 
-        .features-grid {
+        .features-carousel {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            position: relative;
+        }
+
+        .features-grid {
+            display: flex;
             gap: 2rem;
+            overflow-x: auto;
+            padding: 0.25rem 0.25rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .features-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .features-arrow {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-purple);
+            color: var(--white);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .features-arrow:hover {
+            background: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .features-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .feature-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
             background: var(--light-bg);
             padding: 2.5rem;
             border-radius: 12px;
             border-left: 4px solid var(--primary-purple);
             transition: all 0.3s;
+        }
+
+        @media (max-width: 600px) {
+            .feature-card {
+                flex-basis: 84vw;
+            }
         }
 
         .feature-card:hover {
@@ -600,8 +724,8 @@
             }
 
             .hero-logo {
-                width: 160px;
-                height: 160px;
+                width: 240px;
+                height: 240px;
             }
 
             .logo-img {
@@ -636,11 +760,31 @@
 </nav>
 
 <section id="inicio" class="hero gradient-bg">
-    <div class="hero-content">
-        <div class="hero-logo">
-            <img src="logo.png" alt="AWS Women in Cloud Buenos Aires">
+    <div class="hero-decor" aria-hidden="true">
+        <span class="hero-star" style="top: 10%; left: 6%; width: 22px; height: 22px; color: rgba(255,255,255,0.55); animation-delay: 0s;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"/></svg>
+        </span>
+        <span class="hero-star" style="top: 22%; left: 46%; width: 16px; height: 16px; color: rgba(255,255,255,0.4); animation-delay: 0.6s;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"/></svg>
+        </span>
+        <span class="hero-star" style="top: 6%; right: 10%; width: 30px; height: 30px; color: var(--accent-purple); animation-delay: 1.2s;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"/></svg>
+        </span>
+        <span class="hero-star" style="bottom: 14%; left: 12%; width: 18px; height: 18px; color: rgba(255,255,255,0.45); animation-delay: 1.8s;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"/></svg>
+        </span>
+        <span class="hero-star" style="bottom: 10%; right: 14%; width: 24px; height: 24px; color: var(--accent-purple); animation-delay: 0.9s;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"/></svg>
+        </span>
+    </div>
+    <div class="hero-content hero-content-split">
+        <div class="hero-badge">
+            <div class="hero-logo">
+                <img src="logo.png" alt="AWS Women in Cloud Buenos Aires">
+            </div>
         </div>
-        <h1>AWS Women in Cloud Buenos Aires</h1>
+        <div class="hero-text">
+        <h1>Women in Cloud<span class="hero-title-sub">Buenos Aires</span></h1>
         <p class="tagline">Generando nubes de talento</p>
         <p>Somos mujeres que se animaron a aprender, a preguntar y a crecer en el mundo cloud. Nos encontramos, nos ayudamos y hoy somos una comunidad que sigue sumando voces. Si estás dando tus primeros pasos o ya tenés experiencia, acá tenés un lugar.</p>
         <div class="cta-buttons">
@@ -665,6 +809,7 @@
                 YouTube
             </a>
         </div>
+        </div>
     </div>
 </section>
 
@@ -687,7 +832,8 @@
 <section id="actividades" class="section features">
     <h2 class="section-title">¿Qué hacemos?</h2>
     <p class="section-subtitle"></p>
-    <div class="features-grid">
+    <div class="features-carousel">
+    <div class="features-grid" id="featuresTrack">
         <div class="feature-card">
             <div class="feature-icon">🎓</div>
             <h3>Formación Continua</h3>
@@ -718,6 +864,11 @@
             <h3>Eventos</h3>
             <p>Organizamos meetups, charlas técnicas y eventos sociales con líderes de la industria cloud en Buenos Aires y región.</p>
         </div>
+    </div>
+    <div class="features-arrows">
+        <button class="features-arrow" id="featuresPrev" aria-label="Actividad anterior">‹</button>
+        <button class="features-arrow" id="featuresNext" aria-label="Actividad siguiente">›</button>
+    </div>
     </div>
 </section>
 
@@ -800,5 +951,20 @@
     <p>&copy; 2026 AWS Women in Cloud Buenos Aires. Todos los derechos reservados.</p>
     <p style="margin-top: 0.5rem; font-size: 0.9rem;">User Group de Amazon Web Services</p>
 </footer>
+<script>
+    (function () {
+        var track = document.getElementById('featuresTrack');
+        var firstCard = track.querySelector('.feature-card');
+        var step = firstCard.offsetWidth + 32;
+
+        document.getElementById('featuresPrev').addEventListener('click', function () {
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+
+        document.getElementById('featuresNext').addEventListener('click', function () {
+            track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    })();
+</script>
 </body>
 </html>
