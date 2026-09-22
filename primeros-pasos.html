@@ -269,6 +269,128 @@
             margin-top: 3rem;
         }
 
+        .resources {
+            background: var(--light-bg);
+        }
+
+        .resources-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(58,43,138,0.08);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(58,43,138,0.15);
+        }
+
+        .resource-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: var(--primary-dark);
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .resource-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-link {
+            color: var(--primary-purple);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-size: 0.95rem;
+        }
+
+        .youtube-resources {
+            background: var(--primary-dark);
+        }
+
+        .youtube-resources .section-title {
+            color: var(--white);
+        }
+
+        .youtube-resources .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .playlists-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .playlist-card {
+            text-align: center;
+        }
+
+        .playlist-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .youtube-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            aspect-ratio: 16/9;
+        }
+
+        .youtube-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .playlist-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .playlist-link:hover {
+            color: var(--white);
+        }
+
         footer {
             background: var(--primary-dark);
             color: rgba(255,255,255,0.7);
@@ -374,6 +496,80 @@
     </div>
     <div class="steps-cta">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-iQ0UiKyI5RKPNNf7FTaR-2viHkX1OomZDN8tIRYzMT_ILg/viewform" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Empezar ahora</a>
+    </div>
+</section>
+
+<section class="section resources">
+    <h2 class="section-title">Herramientas que ofrece AWS para arrancar</h2>
+    <p class="section-subtitle">Todo esto es oficial de AWS y, en su mayoría, gratuito. Es el kit con el que nosotras también empezamos.</p>
+    <div class="resources-grid">
+        <div class="resource-card">
+            <div class="resource-icon">🆓</div>
+            <h3>AWS Free Tier</h3>
+            <p>Más de 30 servicios gratis durante 12 meses (y varios siempre gratis) para practicar sin gastar un peso.</p>
+            <a href="https://aws.amazon.com/free/" target="_blank" rel="noopener noreferrer" class="resource-link">Crear cuenta gratis →</a>
+        </div>
+        <div class="resource-card">
+            <div class="resource-icon">📚</div>
+            <h3>AWS Skill Builder</h3>
+            <p>Cientos de cursos digitales gratuitos, rutas de aprendizaje y AWS Cloud Quest, un juego para aprender cloud jugando.</p>
+            <a href="https://skillbuilder.aws/" target="_blank" rel="noopener noreferrer" class="resource-link">Ver cursos →</a>
+        </div>
+        <div class="resource-card">
+            <div class="resource-icon">🚀</div>
+            <h3>AWS re/Start</h3>
+            <p>Programa gratuito e intensivo de formación en cloud, pensado para personas sin experiencia previa que buscan su primer empleo en el rubro.</p>
+            <a href="https://aws.amazon.com/training/restart/" target="_blank" rel="noopener noreferrer" class="resource-link">Conocer el programa →</a>
+        </div>
+        <div class="resource-card">
+            <div class="resource-icon">🎓</div>
+            <h3>AWS Educate</h3>
+            <p>Cursos, laboratorios y créditos gratuitos pensados para estudiantes que están dando sus primeros pasos en tecnología cloud.</p>
+            <a href="https://aws.amazon.com/education/awseducate/" target="_blank" rel="noopener noreferrer" class="resource-link">Sumarme →</a>
+        </div>
+        <div class="resource-card">
+            <div class="resource-icon">💬</div>
+            <h3>AWS re:Post</h3>
+            <p>La comunidad oficial de preguntas y respuestas de AWS, con soporte de expertos y del propio equipo de AWS.</p>
+            <a href="https://repost.aws/" target="_blank" rel="noopener noreferrer" class="resource-link">Consultar dudas →</a>
+        </div>
+        <div class="resource-card">
+            <div class="resource-icon">🏅</div>
+            <h3>Certificaciones AWS</h3>
+            <p>Validá lo que vas aprendiendo. La ruta recomendada para arrancar es la certificación AWS Certified Cloud Practitioner.</p>
+            <a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener noreferrer" class="resource-link">Ver certificaciones →</a>
+        </div>
+    </div>
+</section>
+
+<section class="section youtube-resources">
+    <h2 class="section-title">Aprendé con nuestras playlists</h2>
+    <p class="section-subtitle">Grabamos cursos completos y los dejamos disponibles gratis en nuestro canal de YouTube.</p>
+    <div class="playlists-grid">
+        <div class="playlist-card">
+            <h3>Curso de Arquitectura AWS</h3>
+            <div class="youtube-wrapper">
+                <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3"
+                        title="Curso de Arquitectura AWS - AWS Women in Cloud Buenos Aires"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3&si=2yRIIAR4dK_256lR" target="_blank" rel="noopener noreferrer" class="playlist-link">Ver playlist completa en YouTube →</a>
+        </div>
+        <div class="playlist-card">
+            <h3>AWS - Inicial</h3>
+            <div class="youtube-wrapper">
+                <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLypKqgrEWp_FOd52i8Fg7VunCzFd9M-PO"
+                        title="AWS Inicial - AWS Women in Cloud Buenos Aires"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLypKqgrEWp_FOd52i8Fg7VunCzFd9M-PO&si=knpRl-ZqJGKlmps5" target="_blank" rel="noopener noreferrer" class="playlist-link">Ver playlist completa en YouTube →</a>
+        </div>
     </div>
 </section>
 
