@@ -202,9 +202,13 @@
             background: var(--light-bg);
         }
 
-        .resources-grid {
+        .resources-carousel {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .resources-grid {
             display: flex;
             gap: 1.75rem;
             overflow-x: auto;
@@ -216,6 +220,34 @@
 
         .resources-grid::-webkit-scrollbar {
             display: none;
+        }
+
+        .resources-arrow {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-purple);
+            color: var(--white);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .resources-arrow:hover {
+            background: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .resources-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .resource-card {
@@ -450,7 +482,8 @@
 <section class="section resources">
     <h2 class="section-title">Recursos de AWS</h2>
     <p class="section-subtitle">Todo esto es oficial de AWS y, en su mayoría, gratuito. Es el kit con el que nosotras también empezamos.</p>
-    <div class="resources-grid">
+    <div class="resources-carousel">
+    <div class="resources-grid" id="resourcesTrack">
         <div class="resource-card">
             <div class="resource-icon">🆓</div>
             <h3>AWS Free Tier</h3>
@@ -488,6 +521,11 @@
             <a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener noreferrer" class="resource-link">Ver certificaciones →</a>
         </div>
     </div>
+    <div class="resources-arrows">
+        <button class="resources-arrow" id="resourcesPrev" aria-label="Recurso anterior">‹</button>
+        <button class="resources-arrow" id="resourcesNext" aria-label="Recurso siguiente">›</button>
+    </div>
+    </div>
 </section>
 
 <footer>
@@ -495,5 +533,20 @@
     <p>&copy; 2026 AWS Women in Cloud Buenos Aires. Todos los derechos reservados.</p>
     <p style="margin-top: 0.5rem; font-size: 0.9rem;">User Group de Amazon Web Services</p>
 </footer>
+<script>
+    (function () {
+        var track = document.getElementById('resourcesTrack');
+        var firstCard = track.querySelector('.resource-card');
+        var step = firstCard.offsetWidth + 28;
+
+        document.getElementById('resourcesPrev').addEventListener('click', function () {
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+
+        document.getElementById('resourcesNext').addEventListener('click', function () {
+            track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    })();
+</script>
 </body>
 </html>
