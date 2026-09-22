@@ -386,16 +386,30 @@
             margin-bottom: 2rem;
         }
 
-        .community-photos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            max-width: 1000px;
+        .community-photos-carousel {
+            max-width: 1100px;
             margin: 2.5rem auto 0;
+            position: relative;
+        }
+
+        .community-photos {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            padding: 0.25rem 0.25rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .community-photos::-webkit-scrollbar {
+            display: none;
         }
 
         .community-photos img {
-            width: 100%;
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            width: 320px;
             height: 300px;
             object-fit: cover;
             border-radius: 12px;
@@ -408,9 +422,38 @@
             box-shadow: 0 12px 30px rgba(58,43,138,0.2);
         }
 
+        .community-photos-arrow {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-purple);
+            color: var(--white);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .community-photos-arrow:hover {
+            background: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .community-photos-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
         @media (max-width: 600px) {
-            .community-photos {
-                grid-template-columns: 1fr;
+            .community-photos img {
+                flex-basis: 82vw;
+                width: 82vw;
             }
         }
 
@@ -823,9 +866,34 @@
             A través de eventos, workshops y programas de mentoría, impulsamos el desarrollo de habilidades técnicas en cloud computing y fomentamos la participación de más mujeres en el ecosistema tecnológico de Argentina y Latinoamérica.
         </p>
     </div>
-    <div class="community-photos">
-        <img src="foto1.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 1">
-        <img src="foto2.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 2">
+    <div class="community-photos-carousel">
+        <div class="community-photos" id="communityPhotosTrack">
+            <img src="foto1.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 1" loading="lazy">
+            <img src="foto2.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento 2" loading="lazy">
+            <img src="photos-events/20260912_130410.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/20260912_165757.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03266.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03407.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03656.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03659.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03664.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC03674.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/DSC_0102.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/IMG-20260912-WA0133.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/IMG-20260912-WA0137.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/1715950437179.jpeg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/1722778087868.jpeg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/1749838932008.jpeg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/20251212_215351.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/IMG_4114.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/IMG_4463.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/IMG_4523.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+            <img src="photos-events/_MG_3998.jpg" alt="Comunidad AWS Women in Cloud Buenos Aires - Evento" loading="lazy">
+        </div>
+        <div class="community-photos-arrows">
+            <button class="community-photos-arrow" id="communityPhotosPrev" aria-label="Foto anterior">‹</button>
+            <button class="community-photos-arrow" id="communityPhotosNext" aria-label="Foto siguiente">›</button>
+        </div>
     </div>
 </section>
 
@@ -873,12 +941,12 @@
 </section>
 
 <section class="youtube-section">
-    <h2 class="section-title">Mirá nuestras charlas</h2>
-    <p class="section-subtitle">Las grabaciones de nuestros eventos están disponibles en nuestro canal de YouTube para que puedas verlas cuando quieras.</p>
+    <h2 class="section-title">Nuestros eventos y encuentros</h2>
+    <p class="section-subtitle">Así vivimos nuestros eventos y encuentros presenciales, disponible en nuestro canal de YouTube para que puedas verlo cuando quieras.</p>
     <div class="youtube-wrapper">
         <iframe
-                src="https://www.youtube.com/embed/lqbA0en_zCk?si=UHD2l54KhPZneMOc&amp;start=1"
-                title="AWS Women in Cloud Buenos Aires - Canal de YouTube"
+                src="https://www.youtube.com/embed/aIg3RbHzke8"
+                title="AWS Women in Cloud Buenos Aires - Nuestros eventos y encuentros"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
         </iframe>
@@ -962,6 +1030,20 @@
         });
 
         document.getElementById('featuresNext').addEventListener('click', function () {
+            track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    })();
+
+    (function () {
+        var track = document.getElementById('communityPhotosTrack');
+        var firstPhoto = track.querySelector('img');
+        var step = firstPhoto.offsetWidth + 20;
+
+        document.getElementById('communityPhotosPrev').addEventListener('click', function () {
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+
+        document.getElementById('communityPhotosNext').addEventListener('click', function () {
             track.scrollBy({ left: step, behavior: 'smooth' });
         });
     })();
