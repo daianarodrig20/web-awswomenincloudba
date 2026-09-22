@@ -342,20 +342,68 @@
             background: var(--white);
         }
 
-        .features-grid {
+        .features-carousel {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            position: relative;
+        }
+
+        .features-grid {
+            display: flex;
             gap: 2rem;
+            overflow-x: auto;
+            padding: 0.25rem 0.25rem 1rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .features-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .features-arrow {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary-purple);
+            color: var(--white);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .features-arrow:hover {
+            background: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .features-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .feature-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
             background: var(--light-bg);
             padding: 2.5rem;
             border-radius: 12px;
             border-left: 4px solid var(--primary-purple);
             transition: all 0.3s;
+        }
+
+        @media (max-width: 600px) {
+            .feature-card {
+                flex-basis: 84vw;
+            }
         }
 
         .feature-card:hover {
@@ -687,7 +735,8 @@
 <section id="actividades" class="section features">
     <h2 class="section-title">¿Qué hacemos?</h2>
     <p class="section-subtitle"></p>
-    <div class="features-grid">
+    <div class="features-carousel">
+    <div class="features-grid" id="featuresTrack">
         <div class="feature-card">
             <div class="feature-icon">🎓</div>
             <h3>Formación Continua</h3>
@@ -718,6 +767,11 @@
             <h3>Eventos</h3>
             <p>Organizamos meetups, charlas técnicas y eventos sociales con líderes de la industria cloud en Buenos Aires y región.</p>
         </div>
+    </div>
+    <div class="features-arrows">
+        <button class="features-arrow" id="featuresPrev" aria-label="Actividad anterior">‹</button>
+        <button class="features-arrow" id="featuresNext" aria-label="Actividad siguiente">›</button>
+    </div>
     </div>
 </section>
 
@@ -800,5 +854,20 @@
     <p>&copy; 2026 AWS Women in Cloud Buenos Aires. Todos los derechos reservados.</p>
     <p style="margin-top: 0.5rem; font-size: 0.9rem;">User Group de Amazon Web Services</p>
 </footer>
+<script>
+    (function () {
+        var track = document.getElementById('featuresTrack');
+        var firstCard = track.querySelector('.feature-card');
+        var step = firstCard.offsetWidth + 32;
+
+        document.getElementById('featuresPrev').addEventListener('click', function () {
+            track.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+
+        document.getElementById('featuresNext').addEventListener('click', function () {
+            track.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    })();
+</script>
 </body>
 </html>
