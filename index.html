@@ -597,6 +597,55 @@
             font-weight: 500;
         }
 
+        .participate {
+            background: var(--light-bg);
+        }
+
+        .participate-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .participate-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-purple);
+            box-shadow: 0 6px 20px rgba(58,43,138,0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .participate-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(58,43,138,0.15);
+        }
+
+        .participate-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .participate-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .participate-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+        }
+
         .contact {
             background: var(--gradient-bg);
             text-align: center;
@@ -978,6 +1027,25 @@
         <div class="stat-item">
             <span class="stat-number">24/7</span>
             <span class="stat-label">Comunidad activa</span>
+        </div>
+    </div>
+</section>
+
+<section id="participa" class="section participate">
+    <h2 class="section-title">Sumate y participá</h2>
+    <p class="section-subtitle">La comunidad la hacemos entre todas. Hay muchas formas de ser parte.</p>
+    <div class="participate-grid">
+        <div class="participate-card">
+            <div class="participate-icon">🎤</div>
+            <h3>¿Querés ser speaker?</h3>
+            <p>¿Tenés una charla en mente y querés compartirla con la comunidad? Contanos tu idea y la organizamos juntas.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMztVkfCGH8UbxTYU4p2aA38TG-T-x-EQFA44pg3_gWdGLxw/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Quiero ser speaker</a>
+        </div>
+        <div class="participate-card">
+            <div class="participate-icon">🙌</div>
+            <h3>¿Querés ser voluntaria?</h3>
+            <p>Sumate al equipo que hace posible cada evento y ayudanos a seguir haciendo crecer la comunidad.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0EbaUQnYDFMU_rS0J0LgQZDCpTBKUR5V6k3O5jBjX_sPTow/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Quiero ser voluntaria</a>
         </div>
     </div>
 </section>
