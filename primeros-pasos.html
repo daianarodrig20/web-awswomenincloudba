@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primeros pasos en AWS · AWS Women in Cloud Buenos Aires</title>
     <!-- Favicon -->
-    <!-- Favicons para diferentes dispositivos -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
@@ -317,6 +316,75 @@
             font-size: 0.95rem;
         }
 
+        /* Estilos del Acordeón detallado para la Hoja de Ruta */
+        .guide-section {
+            background: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .accordion-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .accordion-item {
+            background: var(--light-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(58,43,138,0.06);
+            overflow: hidden;
+            border: 1px solid rgba(58,43,138,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 6px 25px rgba(58,43,138,0.12);
+        }
+
+        .accordion-item summary {
+            padding: 1.5rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--primary-purple);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            padding: 0 2rem 2rem 2rem;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: var(--white);
+        }
+
+        .accordion-content p {
+            margin-top: 1rem;
+        }
+
+        .accordion-content ul {
+            margin: 1rem 0 1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
         .youtube-resources {
             background: var(--primary-dark);
         }
@@ -506,18 +574,6 @@
     <p class="section-subtitle">Grabamos cursos completos y los dejamos disponibles gratis en nuestro canal de YouTube.</p>
     <div class="playlists-grid">
         <div class="playlist-card">
-            <h3>Curso de Arquitectura AWS</h3>
-            <div class="youtube-wrapper">
-                <iframe
-                        src="https://www.youtube.com/embed/videoseries?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3"
-                        title="Curso de Arquitectura AWS - AWS Women in Cloud Buenos Aires"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <a href="https://youtube.com/playlist?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3&si=2yRIIAR4dK_256lR" target="_blank" rel="noopener noreferrer" class="playlist-link">Ver playlist completa en YouTube →</a>
-        </div>
-        <div class="playlist-card">
             <h3>AWS - Inicial</h3>
             <div class="youtube-wrapper">
                 <iframe
@@ -528,6 +584,18 @@
                 </iframe>
             </div>
             <a href="https://youtube.com/playlist?list=PLypKqgrEWp_FOd52i8Fg7VunCzFd9M-PO&si=knpRl-ZqJGKlmps5" target="_blank" rel="noopener noreferrer" class="playlist-link">Ver playlist completa en YouTube →</a>
+        </div>
+        <div class="playlist-card">
+            <h3>Curso de Arquitectura AWS</h3>
+            <div class="youtube-wrapper">
+                <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3"
+                        title="Curso de Arquitectura AWS - AWS Women in Cloud Buenos Aires"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLypKqgrEWp_EyK_GIbg1XuYqUVZPBxZH3&si=2yRIIAR4dK_256lR" target="_blank" rel="noopener noreferrer" class="playlist-link">Ver playlist completa en YouTube →</a>
         </div>
     </div>
 </section>
@@ -578,6 +646,70 @@
         <button class="resources-arrow" id="resourcesPrev" aria-label="Recurso anterior">‹</button>
         <button class="resources-arrow" id="resourcesNext" aria-label="Recurso siguiente">›</button>
     </div>
+    </div>
+</section>
+
+<!-- NUEVA SECCIÓN: Hoja de Ruta Paso a Paso con Acordeón -->
+
+<section class=" guide-section">
+    <h2 class="section-title">Hoja de ruta paso a paso</h2>
+    <p class="section-subtitle">Una guía orientada a entender problemas reales, perder el miedo a la nube y desarrollar criterio técnico desde cero.</p>
+    <div class="accordion-container">
+        
+        <!-- Ítem 1 -->
+        <details class="accordion-item">
+            <summary><span>🎯 1. Fundamentos y Conceptos de la Nube</span><span class="accordion-icon">+</span></summary>
+            <div class="accordion-content">
+                <p>Antes de abrir la consola o crear recursos, es clave armar un buen mapa mental de qué significa trabajar en la nube:</p>
+                <ul>
+                    <li><strong>¿Por qué Cloud Computing?:</strong> Entender cómo la flexibilidad, la escalabilidad y el modelo de pago por uso reemplazan o complementan a los servidores físicos tradicionales.</li>
+                    <li><strong>Infraestructura global:</strong> Conocer cómo se distribuye físicamente el servicio a través de Regiones y Zonas de Disponibilidad.</li>
+                    <li><strong>Responsabilidad compartida:</strong> Tener clarísimo qué parte de la seguridad y el mantenimiento asegura AWS (la nube) y de qué parte somos responsables nosotras (nuestros datos, configuraciones y accesos).</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Ítem 2 -->
+        <details class="accordion-item">
+            <summary><span>✨ 2. Tu Cuenta Segura (Paso a Paso Inicial)</span><span class="accordion-icon">+</span></summary>
+            <div class="accordion-content">
+                <p>La mejor forma de aprender es experimentando, pero protegiendo tu cuenta desde el primer segundo:</p>
+                <ul>
+                    <li><strong>Registro en la Free Tier:</strong> Creá tu cuenta en el sitio oficial utilizando una tarjeta de crédito o débito para validación de identidad (se realiza un cargo mínimo temporal que luego se reintegra).</li>
+                    <li><strong>Seguridad desde el minuto cero:</strong> Configurá la Autenticación Multifactor (MFA) en tu cuenta raíz antes de realizar cualquier acción.</li>
+                    <li><strong>Control de costos:</strong> Creá alarmas y presupuestos de gasto para experimentar con total tranquilidad en la capa gratuita.</li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- Ítem 3 -->
+        <details class="accordion-item">
+            <summary><span>🛠️ 3. Los Imprescindibles (La Caja de Herramientas)</span><span class="accordion-icon">+</span></summary>
+            <div class="accordion-content">
+                <p>En lugar de intentar memorizar los cientos de servicios que ofrece AWS desde el primer día, es mucho más útil asociar cada necesidad arquitectónica básica con sus servicios correspondientes:</p>
+                <ul>
+                    <li><strong>Ejecutar aplicaciones:</strong> Amazon EC2, AWS Lambda, Amazon ECS.</li>
+                    <li><strong>Guardar objetos y datos:</strong> Amazon S3, Amazon DynamoDB, Amazon RDS.</li>
+                    <li><strong>Controlar accesos y redes:</strong> AWS IAM y Amazon VPC.</li>
+                    <li><strong>Observar y exponer:</strong> Amazon CloudWatch y API Gateway.</li>
+                </ul>
+                <p>El objetivo no es aprender definiciones aisladas, sino entender qué problema resuelve cada componente y cómo se conectan entre sí.</p>
+            </div>
+        </details>
+
+        <!-- Ítem 4 -->
+        <details class="accordion-item">
+            <summary><span>🗺️ 4. Capacitación y Roadmap de Certificaciones</span><span class="accordion-icon">+</span></summary>
+            <div class="accordion-content">
+                <p>Apoyate en recursos oficiales y en el acompañamiento de la comunidad para estructurar tu crecimiento:</p>
+                <ul>
+                    <li><strong>AWS Skill Builder & Cloud Quest:</strong> Plataformas oficiales para tomar cursos gratuitos y practicar mediante desafíos interactivos.</li>
+                    <li><strong>Roadmap de Certificaciones:</strong> Arrancá con <em>AWS Certified Cloud Practitioner</em> como punto de partida ideal para ordenar conceptos generales, y luego avanzá hacia roles técnicos específicos de nivel *Associate*.</li>
+                    <li><strong>Acompañamiento en Comunidad:</strong> Participá de nuestros meetups y reviví las clases prácticas en nuestro canal de YouTube para afianzar los temas entre pares.</li>
+                </ul>
+            </div>
+        </details>
+
     </div>
 </section>
 
